@@ -62,20 +62,17 @@ while (True):
     print(cnts)
 	# only proceed if at least one contour was found
     if len(cnts) > 0:
-        #find largest contour
-		c = max(cnts, key=cv2.contourArea)
-
-        #find minimum enclosing circle around contour
-		((x, y), radius) = cv2.minEnclosingCircle(c)
+        c = max(cnts, key=cv2.contourArea)        
+        ((x, y), radius) = cv2.minEnclosingCircle(c) #find minimum enclosing circle around contour
 
         #Computation of centroid
-		M = cv2.moments(c)
-		center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
+        M = cv2.moments(c)
+        center = (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))
  
-		# only proceed if the radius meets a minimum size
-		if radius > 1:
+		
+        if radius > 1:
 			# draw the circle on the frame,
-			cv2.circle(frame, (int(x), int(y)), int(radius),(0, 255, 255), 2)
+            cv2.circle(frame, (int(x), int(y)), int(radius),(0, 255, 255), 2)
 	
 
     #Display the resulting frame
