@@ -1,0 +1,8 @@
+To make ros work,
+
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python2.7/dist-packages
+then delete the build folder so cmake recaches looking for the python executable
+
+big help: https://dev.to/bgalvao/conda--dealing-with-conflicting-pythons-in-your-system-62n
+
+To get opencv working you want to unset PYTHONPATH
